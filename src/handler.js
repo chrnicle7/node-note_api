@@ -40,6 +40,7 @@ const addNoteHandler = (request, h) => {
     return response;
 };
 
+// Menampilkan semua note
 const getAllNotesHandler = () => ({
     status: 'success',
     data: {
@@ -47,6 +48,7 @@ const getAllNotesHandler = () => ({
     },
 });
 
+//  Menampilkan note berdasarkan parameter url (id)
 const getNotesByIdHandler = (request, h) => {
     const {id} = request.params;
 
@@ -69,6 +71,7 @@ const getNotesByIdHandler = (request, h) => {
     return response;
 };
 
+// Mengedit note berdasarkan parameter url (id)
 const editNoteByIdaHandler = (request, h) => {
     const {id} = request.params;
     const {title, tags, body} = JSON.parse(request.payload);
@@ -100,6 +103,7 @@ const editNoteByIdaHandler = (request, h) => {
     return response;
 };
 
+// Menghapus note berdasarkan parameter url (id)
 const deleteNoteByIdHandler = (request, h) => {
     const {id} = request.params;
     const index = notes.findIndex((note) => note.id === id);
